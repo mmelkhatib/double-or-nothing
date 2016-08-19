@@ -1,0 +1,36 @@
+<h1>Let's Play Dice!</h1>
+<div ng-app="doubleOrNothingApp" ng-controller="playCtrl" class="view">
+
+<section class="profile">
+    <h2>Profile</h2>
+    <span class="name">Hello {{user.profileName}}</span><br>
+    <span class="email">Email: {{user.profileEmail}}</span>
+</section>
+<section class="history">
+    <h2>History</h2>
+<ul>
+<li ng-repeat="sessions in gameHistory track by $index">
+<span>outcome: {{sessions.outcome}}</span><br>
+<span>you waged:{{sessions.wager}}</span><br>
+<span>you Rolled:{{sessions.myRoll}}</span><br>
+<span>Machine Rolled:{{sessions.aiRoll}}</span><br>
+<hr>
+</li>
+</ul>
+</section>
+        <span><strong>Your Remaining Balance</stromg> {{account.runningBalance}}</span><br>
+        <span><strong>Your Bid</stromg> {{session.wager}}</span><br>
+
+  <form>
+      <input type="text" ng-model="session.waged" size="50" placeholder="Enter a Value"></input>
+      <input class="bid-button" type="submit" ng-click="getWager()"value="Submit">
+      <input type="submit" ng-click="rollBid()"value="Roll">
+
+  </form>
+  <div class="session">
+  <span>you Rolled: {{session.myRoll}}</span><br />
+  <span>The Machine Rolled: {{session.aiRoll}}</span><br />
+  <span>You {{session.outcome}}!</span>
+  </div>
+
+</div>
